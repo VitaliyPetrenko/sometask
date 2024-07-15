@@ -12,13 +12,19 @@ type SectionItemProps = {
   description?: string;
   className?: string;
   itemBackground?: boolean;
+  handleItemClick: (item: ItemType) => void
 }
 
-const Item = ({ title, description, date, background }: ItemType & { background?: boolean }) => {
+const Item = ({ title, description, date, background, onClick }: ItemType & { background?: boolean, onClick: () => void }) => {
   return (
-    <div className={cn(styles.item, {
-      [styles.itemBackground]: background
-    })}>
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={onClick}
+      className={cn(styles.item, {
+        [styles.itemBackground]: background
+      })}
+    >
       <div>
         <div className={styles.itemImage}>
           <Time size={32} />
@@ -33,24 +39,37 @@ const Item = ({ title, description, date, background }: ItemType & { background?
   )
 }
 
-const SectionItems = ({ items, title, description, className, itemBackground }: SectionItemProps) => {
+const SectionItems = ({ handleItemClick, items, title, description, className, itemBackground = true }: SectionItemProps) => {
   return (
     <div className={cn(styles.section, className)}>
       {title && <div className={styles.title}>{title}</div>}
       {description && <div className={styles.description}>{description}</div>}
-      <div className={styles.items}>
-        {
-          items.map((item) => {
-            return <Item key={item.id} background={itemBackground} { ...item } />
-          })
-        }
-      </div>
+      {
+        Boolean(items.length) && (
+          <div className={styles.items}>
+            {
+              items.map((item) => {
+                const onClick = () => {
+                  return () => {
+                    handleItemClick(item);
+                  }
+                }
+
+                return <Item onClick={onClick()} key={item.id} background={itemBackground} {...item} />
+              })
+            }
+          </div>
+        )
+      }
+      {
+        !items.length && (
+          <div className={styles.items}>
+            Try to use another filter
+          </div>
+        )
+      }
     </div>
   );
-}
-
-SectionItems.defaultProps = {
-  itemBackground: true
 }
 
 export default SectionItems;

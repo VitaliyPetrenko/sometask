@@ -1,0 +1,25 @@
+.button {
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border: 0;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.outlined:hover {
+  background-color: #c3c4cd;
+}
+
+.contained {
+  color: #ffffff;
+  background-color: #656e8b;
+}
+
+.contained:hover {
+  background-color: #323745;
+}

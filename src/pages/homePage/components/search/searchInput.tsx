@@ -4,14 +4,15 @@ import { Search } from '@carbon/icons-react';
 import styles from './search.module.css';
 
 type SearchInputProps = {
-  onChange?: (event?: ChangeEvent<HTMLInputElement>) => void
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  value: string;
 }
 
-const SearchInput = ({ onChange }: SearchInputProps) => {
+const SearchInput = ({ onChange, value }: SearchInputProps) => {
   return (
     <div className={styles.container}>
       <span className={styles.icon}><Search /></span>
-      <input onChange={onChange} className={styles.input} placeholder="Type to search" />
+      <input value={value} onChange={onChange} className={styles.input} placeholder="Type to search" />
     </div>
   );
 }

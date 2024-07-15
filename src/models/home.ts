@@ -4,4 +4,14 @@ export interface ItemType {
   image: string;
   date?: string;
   id: string;
+  type: string;
+  longDescription: string;
+  link: string;
+  tags: string[];
+  data: {
+    usedTimes: number;
+    pages: number;
+    lastUpdate: string;
+    type: string;
+  }
 }
