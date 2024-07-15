@@ -13,5 +13,5 @@ export interface ItemType {
     pages: number;
     lastUpdate: string;
     type: string;
-  }
+  };
 }

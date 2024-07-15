@@ -8,14 +8,14 @@ type QuickFilterProps = {
   activeFilter: string;
   className?: string;
   onFilterClick: (type: string) => void;
-}
+};
 
 const QuickFilters = ({ filters, activeFilter, className, onFilterClick }: QuickFilterProps) => {
   const handleFilterClick = (type: string) => {
     return () => {
       onFilterClick(type);
-    }
-  }
+    };
+  };
 
   return (
     <div className={cn(styles.container, className)}>
@@ -33,7 +33,7 @@ const QuickFilters = ({ filters, activeFilter, className, onFilterClick }: Quick
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
 export default QuickFilters;

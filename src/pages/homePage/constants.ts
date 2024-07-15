@@ -3,4 +3,4 @@ export const ASSET_TYPES = {
   KPI: 'KPI',
   LAYOUT: 'Layout',
   STORYBOARD: 'Storyboard'
-}
+};

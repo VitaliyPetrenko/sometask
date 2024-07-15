@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import {Close, CopyLink, RequestQuote} from '@carbon/icons-react';
+import { Close, CopyLink, RequestQuote } from '@carbon/icons-react';
 
 import Button from '../../../../components/button/button';
 
@@ -9,7 +9,7 @@ import styles from './accessModal.module.css';
 type AccessModalProps = {
   onRequestClose: () => void;
   isOpen: boolean;
-}
+};
 
 const AccessModal = ({ onRequestClose, isOpen }: AccessModalProps) => {
   return (
@@ -17,10 +17,11 @@ const AccessModal = ({ onRequestClose, isOpen }: AccessModalProps) => {
       onRequestClose={onRequestClose}
       isOpen={isOpen}
       className={styles.modal}
-      overlayClassName={styles.overlay}>
+      overlayClassName={styles.overlay}
+    >
       <div className={styles.container}>
         <div className={styles.actions}>
-          <Button icon={Close} variant="outlined" onClick={onRequestClose}/>
+          <Button icon={Close} variant="outlined" onClick={onRequestClose} />
         </div>
         <div>Storyboard modal</div>
         <textarea placeholder="Reason" />
@@ -28,6 +29,6 @@ const AccessModal = ({ onRequestClose, isOpen }: AccessModalProps) => {
       </div>
     </ReactModal>
   );
-}
+};
 
 export default AccessModal;
